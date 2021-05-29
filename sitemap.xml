@@ -2,14 +2,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>https://glodfish.github.io/2021/05/29/firstTz/</loc>
-    
-    <lastmod>2021-05-29</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://glodfish.github.io/link/index.html</loc>
+    <loc>https://glodfish.github.io/tags/index.html</loc>
     
     <lastmod>2021-05-29</lastmod>
     
@@ -23,7 +16,14 @@
   </url>
   
   <url>
-    <loc>https://glodfish.github.io/tags/index.html</loc>
+    <loc>https://glodfish.github.io/2021/05/29/firstTz/</loc>
+    
+    <lastmod>2021-05-29</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://glodfish.github.io/link/index.html</loc>
     
     <lastmod>2021-05-29</lastmod>
     
