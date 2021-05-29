@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>Glodfish&#39;s Nest</title>
+  
+  
+  <link href="https://glodfish.github.io/atom.xml" rel="self"/>
+  
+  <link href="https://glodfish.github.io/"/>
+  <updated>2021-05-29T14:00:19.941Z</updated>
+  <id>https://glodfish.github.io/</id>
+  
+  <author>
+    <name>Glodfish</name>
+    
+  </author>
+  
+  <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>群星(Stellaris)因校验码不同导致无法联机的解决方法</title>
+    <link href="https://glodfish.github.io/2021/05/29/firstTz/"/>
+    <id>https://glodfish.github.io/2021/05/29/firstTz/</id>
+    <published>2021-05-29T11:30:31.000Z</published>
+    <updated>2021-05-29T14:00:19.941Z</updated>
+    
+    <content type="html"><![CDATA[<p>几天前和朋友们联机群星，有位小伙伴因为网络不稳定中途掉线了，等他再尝试加入时，一直被提示“校验码不匹配”，但他没有修改任何游戏文件。据他说，之前他和别人联机时，和他联机的人也遇到过这种情况，看来是老Bug了，P社也一直没管QAQ。</p><p>网上找到的教程大多都是要你验证游戏完整性，但这很费时，而且我的小伙伴在验证完后也还是进不来xD。甚至卸了群星再重装后，校验码也还是不对;w;</p><p>翻遍了网上的各种教程，最后发明了这个省时省力的方法，成功解决了问题</p><h1>找到并了解<code>checksum_manifest.txt</code></h1><p>在steam左栏中右键群星<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>→</mo></mrow><annotation encoding="application/x-tex">\rightarrow</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.36687em;vertical-align:0em;"></span><span class="mrel">→</span></span></span></span> 属性<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>→</mo></mrow><annotation encoding="application/x-tex">\rightarrow</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.36687em;vertical-align:0em;"></span><span class="mrel">→</span></span></span></span>本地文件<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>→</mo></mrow><annotation encoding="application/x-tex">\rightarrow</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.36687em;vertical-align:0em;"></span><span class="mrel">→</span></span></span></span>浏览来打开游戏目录<br>在游戏目录下找到这个叫<code>checksum_manifest</code>的文本，打开它<img src="/checksum/checksum.png"></p><p>这个文本里存的就是群星在计算校验码时读取的文件列表了<br>选文本中一部分稍微解释一下</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">directory   </span><br><span class="line">name = common  </span><br><span class="line">sub_directories = yes  </span><br><span class="line">file_extension = .txt  </span><br></pre></td></tr></table></figure><p><code>name</code>=<code>common</code>：读取游戏目录下<code>common</code>中的文件来进行校验码计算<br><code>sub_directories</code>：是否读取子文件夹下的文件<br><code>file_extension</code>=<code>.txt</code>：读取的文件的后缀名(文件类型)为<code>txt</code></p><h1>修改<code>checksum_manifest.txt</code></h1><p>了解<code>checksum_manifest.txt</code>之后，我们就可以通过修改它，让群星只读取少部分文件进行校验码计算，来避免不明文件被莫名其妙修改带来的校验码变化</p><mark class="hl-label default">修改checksum_manifest.txt</mark> 带来的 <mark class="hl-label red">影响</mark> ：<ul><li>不能获得成就</li><li><code>checksum_manifest.txt</code>内容不相同的玩家之间无法联机</li></ul><p>以上影响均可通过 <mark class="hl-label default">把checksum_manifest.txt改回原样</mark> 来解除，所以建议在修改前先 <mark class="hl-label red">自行备份</mark> </p><p>我的改法：</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">directory </span><br><span class="line">name = common</span><br><span class="line">sub_directories = no</span><br><span class="line">file_extension = .txt</span><br></pre></td></tr></table></figure><p>这样一来，就只有common目录下的<code>achievements.txt</code>、<code>alerts.txt</code>、<code>HOW_TO_MAKE_NEW_SHIPS.txt</code>被读取参与checksum计算了，只要这三个文本没被修改，我和小伙伴们的校验码就永远是一样的QwQ</p><p>噢！记得让你的小伙伴们也把他们的<code>checksum_manifest.txt</code>修改成和你的一样</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;几天前和朋友们联机群星，有位小伙伴因为网络不稳定中途掉线了，等他再尝试加入时，一直被提示“校验码不匹配”，但他没有修改任何游戏文件。据他说，之前他和别人联机时，和他联机的人也遇到过这种情况，看来是老Bug了，P社也一直没管QAQ。&lt;/p&gt;
+&lt;p&gt;网上找到的教程大多都是要你验</summary>
+      
+    
+    
+    
+    
+  </entry>
+  
+</feed>
