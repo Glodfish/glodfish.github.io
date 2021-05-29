@@ -45,6 +45,27 @@
   </url>
 
   
+  <url>
+    <loc>https://glodfish.github.io/tags/%E6%B8%B8%E6%88%8F/</loc>
+    <lastmod>2021-05-29</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://glodfish.github.io/tags/Stellaris/</loc>
+    <lastmod>2021-05-29</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
 
+  
+  <url>
+    <loc>https://glodfish.github.io/categories/%E6%95%99%E7%A8%8B/</loc>
+    <lastmod>2021-05-29</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
   
 </urlset>
